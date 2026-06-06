@@ -3,10 +3,21 @@ import * as expenseService from "../services/expense.service.js";
 
 export const create = async (req: Request, res: Response) => {
   try {
+    const amount = Number(req.body.amount);
+    const userId = Number(req.body.userId);
+    const { categoryName } = req.body;
+
+    if (isNaN(amount) || amount <= 0)
+      return res.status(400).json({ message: "El monto debe ser mayor a 0" });
+    if (isNaN(userId) || !userId)
+      return res.status(400).json({ message: "userId inválido" });
+    if (!categoryName || !String(categoryName).trim())
+      return res.status(400).json({ message: "La categoría no puede estar vacía" });
+
     const expense = await expenseService.createExpense({
       ...req.body,
-      amount: Number(req.body.amount),
-      userId: Number(req.body.userId),
+      amount,
+      userId,
     });
     res.status(201).json(expense);
   } catch (error: any) {

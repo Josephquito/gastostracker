@@ -70,6 +70,12 @@ export const payFixedExpense = async (data: {
   });
   if (!fixedExpense) throw new Error("Gasto fijo no encontrado");
 
+  const alreadyPaid = await prisma.fixedPayment.findFirst({
+    where: { fixedExpenseId: fixedExpense.id, userId: data.userId, month },
+  });
+  if (alreadyPaid)
+    throw new Error(`El gasto fijo "${cleanName}" ya fue pagado este mes`);
+
   return await prisma.$transaction(async (tx) => {
     const balance = await tx.balance.findUnique({
       where: { userId: data.userId },

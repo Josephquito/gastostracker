@@ -6,6 +6,8 @@ export const createExpense = async (data: {
   categoryName: string;
   userId: number;
 }) => {
+  if (isNaN(data.amount)) throw new Error("El monto es inválido");
+
   return await prisma.$transaction(async (tx) => {
     const category = await tx.category.findFirst({
       where: {

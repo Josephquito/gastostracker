@@ -30,9 +30,17 @@ export const getPending = async (req: Request, res: Response) => {
 
 export const create = async (req: Request, res: Response) => {
   try {
+    const estimatedAmount = Number(req.body.estimatedAmount);
+    const { name } = req.body;
+
+    if (isNaN(estimatedAmount) || estimatedAmount <= 0)
+      return res.status(400).json({ message: "El monto estimado debe ser mayor a 0" });
+    if (!name || !String(name).trim())
+      return res.status(400).json({ message: "El nombre no puede estar vacío" });
+
     const expense = await fixedExpenseService.createFixedExpense({
       ...req.body,
-      estimatedAmount: Number(req.body.estimatedAmount),
+      estimatedAmount,
       userId: Number(req.body.userId),
     });
     res.status(201).json(expense);
@@ -45,6 +53,15 @@ export const update = async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
     const userId = Number(req.body.userId);
+
+    if (req.body.estimatedAmount !== undefined) {
+      const estimatedAmount = Number(req.body.estimatedAmount);
+      if (isNaN(estimatedAmount) || estimatedAmount <= 0)
+        return res
+          .status(400)
+          .json({ message: "El monto estimado debe ser mayor a 0" });
+    }
+
     const expense = await fixedExpenseService.updateFixedExpense(id, userId, {
       ...req.body,
       estimatedAmount: req.body.estimatedAmount
@@ -70,10 +87,23 @@ export const remove = async (req: Request, res: Response) => {
 
 export const pay = async (req: Request, res: Response) => {
   try {
+    const amount = Number(req.body.amount);
+    const userId = Number(req.body.userId);
+    const { fixedExpenseName } = req.body;
+
+    if (isNaN(amount) || amount <= 0)
+      return res.status(400).json({ message: "El monto debe ser mayor a 0" });
+    if (!fixedExpenseName || !String(fixedExpenseName).trim())
+      return res
+        .status(400)
+        .json({ message: "El nombre del gasto fijo no puede estar vacío" });
+    if (isNaN(userId) || !userId)
+      return res.status(400).json({ message: "userId inválido" });
+
     const payment = await fixedExpenseService.payFixedExpense({
-      fixedExpenseName: req.body.fixedExpenseName,
-      amount: Number(req.body.amount),
-      userId: Number(req.body.userId),
+      fixedExpenseName,
+      amount,
+      userId,
     });
     res.status(201).json(payment);
   } catch (error: any) {
