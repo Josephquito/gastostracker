@@ -61,8 +61,12 @@ export const payFixedExpense = async (data: {
   const now = new Date();
   const month = new Date(now.getFullYear(), now.getMonth(), 1);
 
+  const cleanName = data.fixedExpenseName
+    .replace(/\s*\(~\$[\d.]+\)$/, "")
+    .trim();
+
   const fixedExpense = await prisma.fixedExpense.findFirst({
-    where: { name: data.fixedExpenseName, userId: data.userId },
+    where: { name: cleanName, userId: data.userId },
   });
   if (!fixedExpense) throw new Error("Gasto fijo no encontrado");
 
