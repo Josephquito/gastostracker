@@ -388,7 +388,9 @@ export const ModelName = {
   Category: 'Category',
   Expense: 'Expense',
   Balance: 'Balance',
-  Movement: 'Movement'
+  Movement: 'Movement',
+  FixedExpense: 'FixedExpense',
+  FixedPayment: 'FixedPayment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -404,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "category" | "expense" | "balance" | "movement"
+    modelProps: "user" | "category" | "expense" | "balance" | "movement" | "fixedExpense" | "fixedPayment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -778,6 +780,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    FixedExpense: {
+      payload: Prisma.$FixedExpensePayload<ExtArgs>
+      fields: Prisma.FixedExpenseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FixedExpenseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FixedExpenseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        findFirst: {
+          args: Prisma.FixedExpenseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FixedExpenseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        findMany: {
+          args: Prisma.FixedExpenseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>[]
+        }
+        create: {
+          args: Prisma.FixedExpenseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        createMany: {
+          args: Prisma.FixedExpenseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FixedExpenseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>[]
+        }
+        delete: {
+          args: Prisma.FixedExpenseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        update: {
+          args: Prisma.FixedExpenseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        deleteMany: {
+          args: Prisma.FixedExpenseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FixedExpenseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FixedExpenseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>[]
+        }
+        upsert: {
+          args: Prisma.FixedExpenseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedExpensePayload>
+        }
+        aggregate: {
+          args: Prisma.FixedExpenseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFixedExpense>
+        }
+        groupBy: {
+          args: Prisma.FixedExpenseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FixedExpenseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FixedExpenseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FixedExpenseCountAggregateOutputType> | number
+        }
+      }
+    }
+    FixedPayment: {
+      payload: Prisma.$FixedPaymentPayload<ExtArgs>
+      fields: Prisma.FixedPaymentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FixedPaymentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FixedPaymentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        findFirst: {
+          args: Prisma.FixedPaymentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FixedPaymentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        findMany: {
+          args: Prisma.FixedPaymentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>[]
+        }
+        create: {
+          args: Prisma.FixedPaymentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        createMany: {
+          args: Prisma.FixedPaymentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FixedPaymentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>[]
+        }
+        delete: {
+          args: Prisma.FixedPaymentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        update: {
+          args: Prisma.FixedPaymentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        deleteMany: {
+          args: Prisma.FixedPaymentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FixedPaymentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FixedPaymentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>[]
+        }
+        upsert: {
+          args: Prisma.FixedPaymentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FixedPaymentPayload>
+        }
+        aggregate: {
+          args: Prisma.FixedPaymentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFixedPayment>
+        }
+        groupBy: {
+          args: Prisma.FixedPaymentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FixedPaymentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FixedPaymentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FixedPaymentCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -870,6 +1020,29 @@ export const MovementScalarFieldEnum = {
 } as const
 
 export type MovementScalarFieldEnum = (typeof MovementScalarFieldEnum)[keyof typeof MovementScalarFieldEnum]
+
+
+export const FixedExpenseScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  estimatedAmount: 'estimatedAmount',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type FixedExpenseScalarFieldEnum = (typeof FixedExpenseScalarFieldEnum)[keyof typeof FixedExpenseScalarFieldEnum]
+
+
+export const FixedPaymentScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  month: 'month',
+  fixedExpenseId: 'fixedExpenseId',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type FixedPaymentScalarFieldEnum = (typeof FixedPaymentScalarFieldEnum)[keyof typeof FixedPaymentScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1072,6 +1245,8 @@ export type GlobalOmitConfig = {
   expense?: Prisma.ExpenseOmit
   balance?: Prisma.BalanceOmit
   movement?: Prisma.MovementOmit
+  fixedExpense?: Prisma.FixedExpenseOmit
+  fixedPayment?: Prisma.FixedPaymentOmit
 }
 
 /* Types for Logging */

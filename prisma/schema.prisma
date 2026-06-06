@@ -15,6 +15,8 @@ model User {
   expenses   Expense[]
   balance    Balance?
   movements  Movement[]
+  fixedExpenses  FixedExpense[]
+  fixedPayments  FixedPayment[]
 }
 
 model Category {
@@ -55,4 +57,25 @@ model Movement {
   userId      Int
   user        User     @relation(fields: [userId], references: [id])
   createdAt   DateTime @default(now())
+}
+
+model FixedExpense {
+  id              Int            @id @default(autoincrement())
+  name            String
+  estimatedAmount Float
+  userId          Int
+  user            User           @relation(fields: [userId], references: [id])
+  payments        FixedPayment[]
+  createdAt       DateTime       @default(now())
+}
+
+model FixedPayment {
+  id             Int          @id @default(autoincrement())
+  amount         Float
+  month          DateTime
+  fixedExpenseId Int
+  fixedExpense   FixedExpense @relation(fields: [fixedExpenseId], references: [id])
+  userId         Int
+  user           User         @relation(fields: [userId], references: [id])
+  createdAt      DateTime     @default(now())
 }

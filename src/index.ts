@@ -5,6 +5,7 @@ import categoryRoutes from "./routes/category.routes.js";
 import balanceRoutes from "./routes/balance.routes.js";
 import movementRoutes from "./routes/movement.routes.js";
 import summaryRoutes from "./routes/summary.routes.js";
+import fixedExpenseRoutes from "./routes/fixedExpense.routes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use("/categories", categoryRoutes);
 app.use("/balance", balanceRoutes);
 app.use("/movements", movementRoutes);
 app.use("/summary", summaryRoutes);
+app.use("/fixed-expenses", fixedExpenseRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);

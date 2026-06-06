@@ -64,3 +64,13 @@ export type Balance = Prisma.BalanceModel
  * 
  */
 export type Movement = Prisma.MovementModel
+/**
+ * Model FixedExpense
+ * 
+ */
+export type FixedExpense = Prisma.FixedExpenseModel
+/**
+ * Model FixedPayment
+ * 
+ */
+export type FixedPayment = Prisma.FixedPaymentModel

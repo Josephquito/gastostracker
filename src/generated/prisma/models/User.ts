@@ -204,6 +204,8 @@ export type UserWhereInput = {
   expenses?: Prisma.ExpenseListRelationFilter
   balance?: Prisma.XOR<Prisma.BalanceNullableScalarRelationFilter, Prisma.BalanceWhereInput> | null
   movements?: Prisma.MovementListRelationFilter
+  fixedExpenses?: Prisma.FixedExpenseListRelationFilter
+  fixedPayments?: Prisma.FixedPaymentListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -214,6 +216,8 @@ export type UserOrderByWithRelationInput = {
   expenses?: Prisma.ExpenseOrderByRelationAggregateInput
   balance?: Prisma.BalanceOrderByWithRelationInput
   movements?: Prisma.MovementOrderByRelationAggregateInput
+  fixedExpenses?: Prisma.FixedExpenseOrderByRelationAggregateInput
+  fixedPayments?: Prisma.FixedPaymentOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -227,6 +231,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   expenses?: Prisma.ExpenseListRelationFilter
   balance?: Prisma.XOR<Prisma.BalanceNullableScalarRelationFilter, Prisma.BalanceWhereInput> | null
   movements?: Prisma.MovementListRelationFilter
+  fixedExpenses?: Prisma.FixedExpenseListRelationFilter
+  fixedPayments?: Prisma.FixedPaymentListRelationFilter
 }, "id">
 
 export type UserOrderByWithAggregationInput = {
@@ -256,6 +262,8 @@ export type UserCreateInput = {
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -266,6 +274,8 @@ export type UserUncheckedCreateInput = {
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -275,6 +285,8 @@ export type UserUpdateInput = {
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -285,6 +297,8 @@ export type UserUncheckedUpdateInput = {
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -407,12 +421,42 @@ export type UserUpdateOneRequiredWithoutMovementsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutMovementsInput, Prisma.UserUpdateWithoutMovementsInput>, Prisma.UserUncheckedUpdateWithoutMovementsInput>
 }
 
+export type UserCreateNestedOneWithoutFixedExpensesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFixedExpensesInput, Prisma.UserUncheckedCreateWithoutFixedExpensesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFixedExpensesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutFixedExpensesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFixedExpensesInput, Prisma.UserUncheckedCreateWithoutFixedExpensesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFixedExpensesInput
+  upsert?: Prisma.UserUpsertWithoutFixedExpensesInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFixedExpensesInput, Prisma.UserUpdateWithoutFixedExpensesInput>, Prisma.UserUncheckedUpdateWithoutFixedExpensesInput>
+}
+
+export type UserCreateNestedOneWithoutFixedPaymentsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFixedPaymentsInput, Prisma.UserUncheckedCreateWithoutFixedPaymentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFixedPaymentsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutFixedPaymentsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutFixedPaymentsInput, Prisma.UserUncheckedCreateWithoutFixedPaymentsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutFixedPaymentsInput
+  upsert?: Prisma.UserUpsertWithoutFixedPaymentsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutFixedPaymentsInput, Prisma.UserUpdateWithoutFixedPaymentsInput>, Prisma.UserUncheckedUpdateWithoutFixedPaymentsInput>
+}
+
 export type UserCreateWithoutCategoriesInput = {
   name: string
   createdAt?: Date | string
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutCategoriesInput = {
@@ -422,6 +466,8 @@ export type UserUncheckedCreateWithoutCategoriesInput = {
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutCategoriesInput = {
@@ -446,6 +492,8 @@ export type UserUpdateWithoutCategoriesInput = {
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutCategoriesInput = {
@@ -455,6 +503,8 @@ export type UserUncheckedUpdateWithoutCategoriesInput = {
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutExpensesInput = {
@@ -463,6 +513,8 @@ export type UserCreateWithoutExpensesInput = {
   categories?: Prisma.CategoryCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutExpensesInput = {
@@ -472,6 +524,8 @@ export type UserUncheckedCreateWithoutExpensesInput = {
   categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
   movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutExpensesInput = {
@@ -496,6 +550,8 @@ export type UserUpdateWithoutExpensesInput = {
   categories?: Prisma.CategoryUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutExpensesInput = {
@@ -505,6 +561,8 @@ export type UserUncheckedUpdateWithoutExpensesInput = {
   categories?: Prisma.CategoryUncheckedUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
   movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBalanceInput = {
@@ -513,6 +571,8 @@ export type UserCreateWithoutBalanceInput = {
   categories?: Prisma.CategoryCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBalanceInput = {
@@ -522,6 +582,8 @@ export type UserUncheckedCreateWithoutBalanceInput = {
   categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBalanceInput = {
@@ -546,6 +608,8 @@ export type UserUpdateWithoutBalanceInput = {
   categories?: Prisma.CategoryUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBalanceInput = {
@@ -555,6 +619,8 @@ export type UserUncheckedUpdateWithoutBalanceInput = {
   categories?: Prisma.CategoryUncheckedUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutMovementsInput = {
@@ -563,6 +629,8 @@ export type UserCreateWithoutMovementsInput = {
   categories?: Prisma.CategoryCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutMovementsInput = {
@@ -572,6 +640,8 @@ export type UserUncheckedCreateWithoutMovementsInput = {
   categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutUserInput
   expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
   balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutMovementsInput = {
@@ -596,6 +666,8 @@ export type UserUpdateWithoutMovementsInput = {
   categories?: Prisma.CategoryUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutMovementsInput = {
@@ -605,6 +677,124 @@ export type UserUncheckedUpdateWithoutMovementsInput = {
   categories?: Prisma.CategoryUncheckedUpdateManyWithoutUserNestedInput
   expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
   balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutFixedExpensesInput = {
+  name: string
+  createdAt?: Date | string
+  categories?: Prisma.CategoryCreateNestedManyWithoutUserInput
+  expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
+  balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
+  movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutFixedExpensesInput = {
+  id?: number
+  name: string
+  createdAt?: Date | string
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutUserInput
+  expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
+  balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
+  movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutFixedExpensesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutFixedExpensesInput, Prisma.UserUncheckedCreateWithoutFixedExpensesInput>
+}
+
+export type UserUpsertWithoutFixedExpensesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutFixedExpensesInput, Prisma.UserUncheckedUpdateWithoutFixedExpensesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutFixedExpensesInput, Prisma.UserUncheckedCreateWithoutFixedExpensesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutFixedExpensesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutFixedExpensesInput, Prisma.UserUncheckedUpdateWithoutFixedExpensesInput>
+}
+
+export type UserUpdateWithoutFixedExpensesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.CategoryUpdateManyWithoutUserNestedInput
+  expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
+  balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
+  movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutFixedExpensesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutUserNestedInput
+  expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
+  balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
+  movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedPayments?: Prisma.FixedPaymentUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutFixedPaymentsInput = {
+  name: string
+  createdAt?: Date | string
+  categories?: Prisma.CategoryCreateNestedManyWithoutUserInput
+  expenses?: Prisma.ExpenseCreateNestedManyWithoutUserInput
+  balance?: Prisma.BalanceCreateNestedOneWithoutUserInput
+  movements?: Prisma.MovementCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutFixedPaymentsInput = {
+  id?: number
+  name: string
+  createdAt?: Date | string
+  categories?: Prisma.CategoryUncheckedCreateNestedManyWithoutUserInput
+  expenses?: Prisma.ExpenseUncheckedCreateNestedManyWithoutUserInput
+  balance?: Prisma.BalanceUncheckedCreateNestedOneWithoutUserInput
+  movements?: Prisma.MovementUncheckedCreateNestedManyWithoutUserInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutFixedPaymentsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutFixedPaymentsInput, Prisma.UserUncheckedCreateWithoutFixedPaymentsInput>
+}
+
+export type UserUpsertWithoutFixedPaymentsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutFixedPaymentsInput, Prisma.UserUncheckedUpdateWithoutFixedPaymentsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutFixedPaymentsInput, Prisma.UserUncheckedCreateWithoutFixedPaymentsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutFixedPaymentsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutFixedPaymentsInput, Prisma.UserUncheckedUpdateWithoutFixedPaymentsInput>
+}
+
+export type UserUpdateWithoutFixedPaymentsInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.CategoryUpdateManyWithoutUserNestedInput
+  expenses?: Prisma.ExpenseUpdateManyWithoutUserNestedInput
+  balance?: Prisma.BalanceUpdateOneWithoutUserNestedInput
+  movements?: Prisma.MovementUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutFixedPaymentsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  categories?: Prisma.CategoryUncheckedUpdateManyWithoutUserNestedInput
+  expenses?: Prisma.ExpenseUncheckedUpdateManyWithoutUserNestedInput
+  balance?: Prisma.BalanceUncheckedUpdateOneWithoutUserNestedInput
+  movements?: Prisma.MovementUncheckedUpdateManyWithoutUserNestedInput
+  fixedExpenses?: Prisma.FixedExpenseUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -616,12 +806,16 @@ export type UserCountOutputType = {
   categories: number
   expenses: number
   movements: number
+  fixedExpenses: number
+  fixedPayments: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   categories?: boolean | UserCountOutputTypeCountCategoriesArgs
   expenses?: boolean | UserCountOutputTypeCountExpensesArgs
   movements?: boolean | UserCountOutputTypeCountMovementsArgs
+  fixedExpenses?: boolean | UserCountOutputTypeCountFixedExpensesArgs
+  fixedPayments?: boolean | UserCountOutputTypeCountFixedPaymentsArgs
 }
 
 /**
@@ -655,6 +849,20 @@ export type UserCountOutputTypeCountMovementsArgs<ExtArgs extends runtime.Types.
   where?: Prisma.MovementWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFixedExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FixedExpenseWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountFixedPaymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FixedPaymentWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -664,6 +872,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   expenses?: boolean | Prisma.User$expensesArgs<ExtArgs>
   balance?: boolean | Prisma.User$balanceArgs<ExtArgs>
   movements?: boolean | Prisma.User$movementsArgs<ExtArgs>
+  fixedExpenses?: boolean | Prisma.User$fixedExpensesArgs<ExtArgs>
+  fixedPayments?: boolean | Prisma.User$fixedPaymentsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -691,6 +901,8 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   expenses?: boolean | Prisma.User$expensesArgs<ExtArgs>
   balance?: boolean | Prisma.User$balanceArgs<ExtArgs>
   movements?: boolean | Prisma.User$movementsArgs<ExtArgs>
+  fixedExpenses?: boolean | Prisma.User$fixedExpensesArgs<ExtArgs>
+  fixedPayments?: boolean | Prisma.User$fixedPaymentsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -703,6 +915,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     expenses: Prisma.$ExpensePayload<ExtArgs>[]
     balance: Prisma.$BalancePayload<ExtArgs> | null
     movements: Prisma.$MovementPayload<ExtArgs>[]
+    fixedExpenses: Prisma.$FixedExpensePayload<ExtArgs>[]
+    fixedPayments: Prisma.$FixedPaymentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1106,6 +1320,8 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   expenses<T extends Prisma.User$expensesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   balance<T extends Prisma.User$balanceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$balanceArgs<ExtArgs>>): Prisma.Prisma__BalanceClient<runtime.Types.Result.GetResult<Prisma.$BalancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   movements<T extends Prisma.User$movementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$movementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fixedExpenses<T extends Prisma.User$fixedExpensesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$fixedExpensesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FixedExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  fixedPayments<T extends Prisma.User$fixedPaymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$fixedPaymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FixedPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1619,6 +1835,54 @@ export type User$movementsArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.MovementScalarFieldEnum | Prisma.MovementScalarFieldEnum[]
+}
+
+/**
+ * User.fixedExpenses
+ */
+export type User$fixedExpensesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FixedExpense
+   */
+  select?: Prisma.FixedExpenseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FixedExpense
+   */
+  omit?: Prisma.FixedExpenseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FixedExpenseInclude<ExtArgs> | null
+  where?: Prisma.FixedExpenseWhereInput
+  orderBy?: Prisma.FixedExpenseOrderByWithRelationInput | Prisma.FixedExpenseOrderByWithRelationInput[]
+  cursor?: Prisma.FixedExpenseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FixedExpenseScalarFieldEnum | Prisma.FixedExpenseScalarFieldEnum[]
+}
+
+/**
+ * User.fixedPayments
+ */
+export type User$fixedPaymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the FixedPayment
+   */
+  select?: Prisma.FixedPaymentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the FixedPayment
+   */
+  omit?: Prisma.FixedPaymentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FixedPaymentInclude<ExtArgs> | null
+  where?: Prisma.FixedPaymentWhereInput
+  orderBy?: Prisma.FixedPaymentOrderByWithRelationInput | Prisma.FixedPaymentOrderByWithRelationInput[]
+  cursor?: Prisma.FixedPaymentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FixedPaymentScalarFieldEnum | Prisma.FixedPaymentScalarFieldEnum[]
 }
 
 /**

@@ -55,7 +55,9 @@ export const ModelName = {
   Category: 'Category',
   Expense: 'Expense',
   Balance: 'Balance',
-  Movement: 'Movement'
+  Movement: 'Movement',
+  FixedExpense: 'FixedExpense',
+  FixedPayment: 'FixedPayment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -127,6 +129,29 @@ export const MovementScalarFieldEnum = {
 } as const
 
 export type MovementScalarFieldEnum = (typeof MovementScalarFieldEnum)[keyof typeof MovementScalarFieldEnum]
+
+
+export const FixedExpenseScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  estimatedAmount: 'estimatedAmount',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type FixedExpenseScalarFieldEnum = (typeof FixedExpenseScalarFieldEnum)[keyof typeof FixedExpenseScalarFieldEnum]
+
+
+export const FixedPaymentScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  month: 'month',
+  fixedExpenseId: 'fixedExpenseId',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type FixedPaymentScalarFieldEnum = (typeof FixedPaymentScalarFieldEnum)[keyof typeof FixedPaymentScalarFieldEnum]
 
 
 export const SortOrder = {
