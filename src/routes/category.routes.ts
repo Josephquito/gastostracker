@@ -1,0 +1,13 @@
+import { Router } from "express";
+import * as categoryController from "../controllers/category.controller.js";
+
+const router = Router();
+
+router.post("/", categoryController.create);
+router.get("/:userId", categoryController.getAll);
+router.put("/:id", categoryController.update);
+router.delete("/:id", categoryController.remove);
+router.get("/:userId/names", categoryController.getNames);
+router.get("/:userId/find", categoryController.getByName);
+
+export default router;
