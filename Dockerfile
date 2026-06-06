@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY prisma.config.ts ./
+COPY tsconfig.json ./
 COPY prisma/ ./prisma/
 COPY src/ ./src/
 
